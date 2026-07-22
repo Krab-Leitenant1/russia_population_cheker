@@ -14,7 +14,12 @@ def main():
 
     schedule.every().day.at("12:15").do(p.parse)
     while True:
+
         schedule.run_pending()
+
+        if front.poll()!=None:
+            sys.exit(0)
+
 
 if __name__ == "__main__":
     main()
